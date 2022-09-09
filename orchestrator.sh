@@ -8,7 +8,7 @@ cp -r TEMPLATE/${TEMPLATE} DEPLOYED/${INFRA_NAME}
 
 cd DEPLOYED/${INFRA_NAME}
 
-if [ ${NB_INSTANCE} -eq 0 ]
+if [ ${NB_INSTANCE} -gt 0 ]
 then
         for i in {1..${NB_INSTANCE}}
         do
