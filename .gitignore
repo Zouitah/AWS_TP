@@ -1,0 +1,11 @@
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.ssh/known_hosts
+.aws
+.bash_history
+.bash_logout
+.bash_profile
+.cache
+.bashrc
+.viminfo
+.ssh
