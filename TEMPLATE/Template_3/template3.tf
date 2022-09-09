@@ -180,7 +180,7 @@ resource "aws_security_group" "<##INFRA_NAME##>-SG-WEB" {
 }
 
 resource "aws_instance" "<##INFRA_NAME##>-INSTANCE-ADM" {
-	key_name = "test_keypair"
+	key_name = "<##KEY_NAME##>"
 	ami = "ami-09e513e9eacab10c1"
 	vpc_security_group_ids = ["${aws_security_group.<##INFRA_NAME##>-SG-ADM.id}"]
 	subnet_id = "${aws_subnet.<##INFRA_NAME##>-pub.id}"
@@ -193,7 +193,7 @@ resource "aws_instance" "<##INFRA_NAME##>-INSTANCE-ADM" {
 }
 
 resource "aws_instance" "<##INFRA_NAME##>-INSTANCE-RPROXY" {
-        key_name = "test_keypair"
+        key_name = "<##KEY_NAME##>"
         ami = "ami-09e513e9eacab10c1"
         vpc_security_group_ids = ["${aws_security_group.<##INFRA_NAME##>-SG-RPROXY.id}", "${aws_security_group.<##INFRA_NAME##>-SG-SQUID.id}"]
         subnet_id = "${aws_subnet.<##INFRA_NAME##>-pub.id}"

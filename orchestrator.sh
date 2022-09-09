@@ -3,6 +3,7 @@
 INFRA_NAME=$1
 TEMPLATE=$2
 NB_INSTANCE=$3
+KEY_NAME="AEL_key"
 
 cp -r TEMPLATE/${TEMPLATE} DEPLOYED/${INFRA_NAME}
 
@@ -21,6 +22,7 @@ then
 fi
 
 sed -i "s|<##INFRA_NAME##>|${INFRA_NAME}|g" *
+sed -i "s|<##KEY_NAME##>|${KEY_NAME}|g" *
 
 terraform init
 

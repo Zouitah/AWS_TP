@@ -13,7 +13,7 @@ resource "aws_network_interface_sg_attachment" "<##INFRA_NAME##>-<##NUMERO_INSTA
 }
 
 resource "aws_instance" "<##INFRA_NAME##>-<##NUMERO_INSTANCE##>-INSTANCE-WEB" {
-        key_name = "test_keypair"
+        key_name = "<##KEY_NAME##>"
         ami = "ami-09e513e9eacab10c1"
 	instance_type = "t2.micro"
 	user_data = "${file("httpd.sh")}"

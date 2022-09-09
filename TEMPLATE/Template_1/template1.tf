@@ -55,7 +55,7 @@ resource "aws_security_group" "<##INFRA_NAME##>-sg-pub" {
 }
 
 resource "aws_instance" "<##INFRA_NAME##>-INSTANCE-WEB" {
-        key_name = "test_keypair"
+        key_name = "<##KEY_NAME##>"
         ami = "ami-09e513e9eacab10c1"
 	instance_type = "t2.micro"
 	subnet_id   = "${aws_subnet.<##INFRA_NAME##>-pub.id}"
