@@ -63,6 +63,10 @@ resource "aws_instance" "<##INFRA_NAME##>-INSTANCE-WEB" {
 	vpc_security_group_ids = ["${aws_security_group.<##INFRA_NAME##>-sg-pub.id}"]
 	associate_public_ip_address = true
 
+	provisioner "local-exec" {
+                command = "echo ${self.public_ip} > temp_ip"
+        }
+
         tags = {
                 Name = "<##INFRA_NAME##>-INSTANCE-WEB"
         }
