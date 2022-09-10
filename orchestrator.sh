@@ -60,6 +60,4 @@ cat << EOF
 
 EOF
 
-rm temp_ip
-
 exit
