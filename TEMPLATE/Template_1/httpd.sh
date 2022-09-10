@@ -10,4 +10,4 @@ apt update -y
 apt install -y apache2 php libapache*php
 
 rm /var/www/html/index.html
-echo "<?php phpinfo(); ?>" | tee /var/www/html/index.php
+echo "<##WEB_PAGE##>" | tee /var/www/html/index.php

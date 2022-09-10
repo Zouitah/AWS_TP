@@ -125,29 +125,6 @@ resource "aws_security_group" "<##INFRA_NAME##>-SG-RPROXY" {
         }
 }
 
-resource "aws_security_group" "<##INFRA_NAME##>-SG-SQUID" {
-        name = "<##INFRA_NAME##>-SG-SQUID"
-        description = "<##INFRA_NAME##>-SG-SQUID"
-        vpc_id = "${aws_vpc.<##INFRA_NAME##>-vpc.id}"
-
-        ingress {
-                description = "Allow HTTP from Reverse Proxy"
-                from_port = 3128
-                to_port = 3128
-                protocol = "tcp"
-                security_groups = ["${aws_security_group.<##INFRA_NAME##>-SG-WEB.id}"]
-        }
-
-        egress {
-                description = "Allow out Traffic"
-                from_port = 0
-                to_port = 0
-                protocol = "-1"
-                cidr_blocks = ["0.0.0.0/0"]
-                ipv6_cidr_blocks = []
-        }
-}
-
 resource "aws_security_group" "<##INFRA_NAME##>-SG-WEB" {
         name = "<##INFRA_NAME##>-SG-WEB"
         description = "<##INFRA_NAME##>-SG-WEB"
@@ -195,7 +172,7 @@ resource "aws_instance" "<##INFRA_NAME##>-INSTANCE-ADM" {
 resource "aws_instance" "<##INFRA_NAME##>-INSTANCE-RPROXY" {
         key_name = "<##KEY_NAME##>"
         ami = "ami-09e513e9eacab10c1"
-        vpc_security_group_ids = ["${aws_security_group.<##INFRA_NAME##>-SG-RPROXY.id}", "${aws_security_group.<##INFRA_NAME##>-SG-SQUID.id}"]
+        vpc_security_group_ids = ["${aws_security_group.<##INFRA_NAME##>-SG-RPROXY.id}"]
         subnet_id = "${aws_subnet.<##INFRA_NAME##>-pub.id}"
 	instance_type = "t2.micro"
 	associate_public_ip_address = "true"

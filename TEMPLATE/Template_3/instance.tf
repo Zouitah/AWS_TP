@@ -1,6 +1,7 @@
+#INSTANCE <##NUMERO_INSTANCE##>
 resource "aws_network_interface" "<##INFRA_NAME##>-<##NUMERO_INSTANCE##>-INSTANCE-WEB-IP" {
 	subnet_id = "${aws_subnet.<##INFRA_NAME##>-priv.id}"
-	private_ips = ["10.0.2.<##NUMERO_INSTANCE##>"]
+	private_ips = ["10.0.2.<##NUMERO_INSTANCE_IP##>"]
 	
 	tags = {
 		Name = "<##INFRA_NAME##>-INSTANCE-WEB-IP"
@@ -27,3 +28,5 @@ resource "aws_instance" "<##INFRA_NAME##>-<##NUMERO_INSTANCE##>-INSTANCE-WEB" {
                 Name = "<##INFRA_NAME##>-<##NUMERO_INSTANCE##>-INSTANCE-WEB"
         }
 }
+
+

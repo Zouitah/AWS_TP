@@ -1,7 +1,7 @@
 #!/bin/bash
 
-apt update -y
-apt install -y haproxy
+sudo apt update -y
+sudo apt install -y haproxy
 
 cat << EOF >> /etc/haproxy/haproxy.cfg
 
